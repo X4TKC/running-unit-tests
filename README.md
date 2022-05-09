@@ -1,4 +1,4 @@
-![alt text](https://imgur.com/a/2ibw5pe)
+![SonarQube/SonarCloud deployment show to be configured with the repo](https://imgur.com/a/2ibw5pe)
 # Running Unit Tests With Maven and Gradle
 
 This example application demonstrates how you can run unit tests which use JUnit 5 by using
