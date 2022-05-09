@@ -42,21 +42,7 @@ jobs:
           java-version: '11'
       - name: gradle Test
         run: gradle test
-  sonarcloud:
-    continue-on-error: true
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        with:
-        # Disabling shallow clone is recommended for improving relevancy of reporting
-          fetch-depth: 0
-      - name: permissions to gradlew
-        run: chmod +x ./gradlew
-      - name: Build and analyze
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: ./gradlew build sonarqube --info -Dsonar.qualitygate.wait=true
+
   sonar:
     name: Sonar build
     runs-on: ubuntu-latest
@@ -84,6 +70,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: gradle build sonarqube --info
+        run: gradle build sonarqube --info -Dsonar.qualitygate.wait=true
         #go go
 
