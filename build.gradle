@@ -1,6 +1,47 @@
+buildscript {
+    repositories {
+        maven {
+            url 'https://jaladevopskc.jfrog.io/artifactory/gradlekc-virtual'
+            credentials {
+                username = "${artifactory_user}"
+                password = "${artifactory_password}"
+            }
+        }
+        
+    }
+    dependencies {
+        //Check for the latest version here: http://plugins.gradle.org/plugin/com.jfrog.artifactory
+        classpath "org.jfrog.buildinfo:build-info-extractor-gradle:4+"
+    }
+}
 plugins {
     id  'java'
     id "org.sonarqube" version "3.3"
+}
+allprojects {
+    apply plugin: "com.jfrog.artifactory"
+}
+
+artifactory {
+    contextUrl = "${artifactory_contextUrl}"   //The base Artifactory URL if not overridden by the publisher/resolver
+    publish {
+        repository {
+            repoKey = 'gradlekc-local'
+            username = "${artifactory_user}"
+            password = "${artifactory_password}"
+            maven = true
+            
+        }
+    }
+    resolve {
+        repository {
+            repoKey = 'gradlekc-virtual'
+            username = "${artifactory_user}"
+            password = "${artifactory_password}"
+            maven = true
+            
+        }
+    }
 }
 repositories {
     mavenCentral()
@@ -22,3 +63,5 @@ sonarqube {
     property "sonar.organization", "kevin-cardenas"
   }
 }
+
+
