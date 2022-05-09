@@ -1,4 +1,4 @@
-## SonarCloud deployment configured with the repository
+# SonarCloud deployment configured with the repository
 
 SonarCloud project:
 
@@ -8,6 +8,8 @@ Sonar token:
 
 ![SonarQube/SonarCloud deployment show to be configured with the repo](https://i.imgur.com/RgniYvR.png)
 
+# Sonar quality deployment 
+
 Sonar quality gate configuration:
 
 ![SonarQube/SonarCloud quality gate configuration](https://i.imgur.com/ESeLdEM.png)
@@ -16,11 +18,21 @@ gradle.yml sonarcloud implementation with qualitygate.wait=true:
 
 ![image](https://user-images.githubusercontent.com/38559573/167475248-9d517007-5062-4157-92d6-f2190cc24267.png)
 
+# Artifactory deployment configuration
+
 ![Artifactory deployment configuration](https://i.imgur.com/Dc0eJjz.png)
+
 ![Artifactory deployment configuration](https://i.imgur.com/ujdpQZQ.png)
+
 ![Artifactory deployment configuration](https://i.imgur.com/J3yl72b.png)
+
 ![Artifactory deployment configuration](https://i.imgur.com/5m97GvY.png)
+
+# GitLeaks and snyk.io
+
 ![image](https://user-images.githubusercontent.com/38559573/167476599-366e1c9d-6d35-4ddf-871d-10a42ddead54.png)
+
+![image](https://user-images.githubusercontent.com/38559573/167506907-53928499-1f92-4fec-9aa0-52b2a057aea5.png)
 
 # Running Unit Tests With Maven and Gradle
 
