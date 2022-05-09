@@ -1,7 +1,7 @@
 
 image: gradle:jre11-slim
 
-stages:          # List of stages for jobs, and their order of execution
+stages:       
   - test
   - test-sonarcloud
   - build
@@ -12,8 +12,8 @@ test:
 test-sonarcloud:
   stage: test-sonarcloud
   variables:
-   SONAR_USER_HOME: "${CI_PROJECT_DIR}/.sonar"  # Defines the location of the analysis task cache
-   GIT_DEPTH: "0"  # Tells git to fetch all the branches of the project, required by the analysis task
+   SONAR_USER_HOME: "${CI_PROJECT_DIR}/.sonar"  
+   GIT_DEPTH: "0"  
   image:
     name: gradle:jre11-slim
     entrypoint: [""]
@@ -22,7 +22,6 @@ test-sonarcloud:
     paths:
       - .sonar/cache
   script:
-      #- mvn verify "-Dsonar.qualitygate=true" sonar:sonar -Dsonar.projectKey=Kevin.Cardenas_running-unit-tests
       - gradle sonarqube -Dsonar.qualitygate.wait=true
   only:
     - main
