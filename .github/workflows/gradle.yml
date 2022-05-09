@@ -59,8 +59,8 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: '11'
-      - name: gradle Test
-        run: gradle test
+      - name: gradle clean test 
+        run: gradle clean test 
 
   sonar:
     name: sonarcloud
