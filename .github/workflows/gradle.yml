@@ -63,7 +63,7 @@ jobs:
         run: gradle test
 
   sonar:
-    name: Sonar build
+    name: sonarcloud
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
