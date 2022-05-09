@@ -28,7 +28,7 @@ jobs:
         arguments: build
 
     - name: Build JFrog
-      run: ./gradlew build
+      run: gradle build -Pversion=1.0
   snyk:
     runs-on: ubuntu-latest
     steps:
