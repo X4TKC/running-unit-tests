@@ -10,7 +10,7 @@ on:
 #  contents: read
 jobs:
   build:
-
+    needs: [ test, sonar ]
     runs-on: ubuntu-latest
 
     steps:
